@@ -1,0 +1,26 @@
+# PvPManager Configuration File
+# -> Time: Sets for how long a player is in "In Combat" after being attacked
+# -> Stop Commands: Stop a player from using commands like /home, etc while in combat.
+# -> Punishments: Sets if you want to punish or not a player that logs out while in combat.
+# -> World Exclusions: Write the name of worlds where you don't want to use PvPManager. 
+# Just delete the examples and write the name of your worlds to disable.
+# Set to false to disable a feature you don't want to use and to true to enable one you want to use.
+
+Config Version: 2
+Update Check: true
+
+Disable Fly: true
+
+In Combat:
+  Enabled: true
+  Time(seconds): 15
+  Stop Commands: true
+  Broadcast PvE Log: true
+  Punishments:
+    Enabled: true
+    Kill on Logout:
+      Enabled: true      
+      
+World Exclusions:
+  - Example
+  - Example2
