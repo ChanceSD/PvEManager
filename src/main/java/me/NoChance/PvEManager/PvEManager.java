@@ -6,12 +6,14 @@ import java.util.HashSet;
 import me.NoChance.PvEManager.Config.*;
 import me.NoChance.PvEManager.Listeners.*;
 import me.NoChance.PvEManager.Updater.UpdateResult;
+
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
 
 public final class PvEManager extends JavaPlugin {
 
 	public HashSet<String> inCombat = new HashSet<String>();
-	public HashMap<String, Integer> tasks = new HashMap<String, Integer>();
+	public HashMap<String, BukkitTask> tasks = new HashMap<String, BukkitTask>();
 	public Variables variables;
 	public boolean update;
 	public String newVersion;
@@ -37,7 +39,6 @@ public final class PvEManager extends JavaPlugin {
 				getLogger().info("No update found");
 		}
 	}
-
 
 	public void loadFiles() {
 		if (getConfig().getInt("Config Version") == 0 || getConfig().getInt("Config Version") < 2) {
