@@ -36,11 +36,10 @@ public class PlayerListener implements Listener {
 		final Player player = event.getPlayer();
 		if (player.isOp()) {
 			if (plugin.update) {
-				player.sendMessage("" + "" + plugin.newVersion); //$NON-NLS-1$ //$NON-NLS-2$
-				player.sendMessage("" + "" //$NON-NLS-1$ //$NON-NLS-2$
-				        + plugin.getDescription().getVersion());
-				player.sendMessage(""); //$NON-NLS-1$
-				player.sendMessage(""); //$NON-NLS-1$
+				player.sendMessage("§6[§fPvEManager§6] " + "§2An update is available: §e" + plugin.newVersion);
+				player.sendMessage("§6[§fPvEManager§6] " + "§2Your current version is: §ePvEManager v" + plugin.getDescription().getVersion());
+				player.sendMessage("§2Go to this page to download the latest version:");
+				player.sendMessage("§2Link: §ehttp://dev.bukkit.org/bukkit-plugins/pvemanager/");
 			}
 		}
 	}
