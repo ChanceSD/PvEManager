@@ -34,7 +34,7 @@ public class DamageListener implements Listener {
 			disableFly(player);
 		}
 		if (Variables.inCombatEnabled) {
-			if (!plugin.inCombat.contains(player.getName()) && !player.hasPermission("pvemanager.nocombat")) {
+			if (!plugin.inCombat.contains(player.getName()) && !player.hasPermission("pvemanager.nocombat")) { //$NON-NLS-1$
 				inCombat(player);
 			}
 		}
@@ -47,7 +47,7 @@ public class DamageListener implements Listener {
 			Timer(pl);
 			return;
 		}
-		player.sendMessage("§6[§8PvEManager§6] §cYou are In Combat!");
+		player.sendMessage(Messages.getString("In_Combat")); //$NON-NLS-1$
 		plugin.inCombat.add(pl);
 		Timer(pl);
 	}
@@ -61,7 +61,7 @@ public class DamageListener implements Listener {
 		plugin.tasks.put(player, new BukkitRunnable() {
 			public void run() {
 				if (plugin.getServer().getPlayerExact(player) != null)
-					plugin.getServer().getPlayerExact(player).sendMessage("§6[§8PvEManager§6] §aYou are no longer in combat");
+					plugin.getServer().getPlayerExact(player).sendMessage(Messages.getString("Out_Of_Combat")); //$NON-NLS-1$
 				plugin.inCombat.remove(player);
 			}
 		}.runTaskLater(plugin, Variables.timeInCombat * 20));

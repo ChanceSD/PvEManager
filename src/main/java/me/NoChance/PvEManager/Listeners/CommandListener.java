@@ -21,7 +21,7 @@ public class CommandListener implements Listener {
 		if (Variables.stopCommands && Variables.inCombatEnabled) {
 			if (plugin.inCombat.contains(event.getPlayer().getName())) {
 				event.setCancelled(true);
-				event.getPlayer().sendMessage("§6[§8PvEManager§6] §4Command denied! You are still in combat!");
+				event.getPlayer().sendMessage(Messages.getString("Command_Denied")); //$NON-NLS-1$
 			}
 		}
 	}

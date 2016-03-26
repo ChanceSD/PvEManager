@@ -3,12 +3,15 @@ package me.NoChance.PvEManager;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import me.NoChance.PvEManager.Config.*;
-import me.NoChance.PvEManager.Listeners.*;
-import me.NoChance.PvEManager.Updater.UpdateResult;
-
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
+
+import me.NoChance.PvEManager.Updater.UpdateResult;
+import me.NoChance.PvEManager.Config.Variables;
+import me.NoChance.PvEManager.Listeners.CommandListener;
+import me.NoChance.PvEManager.Listeners.DamageListener;
+import me.NoChance.PvEManager.Listeners.Messages;
+import me.NoChance.PvEManager.Listeners.PlayerListener;
 
 public final class PvEManager extends JavaPlugin {
 
@@ -29,14 +32,15 @@ public final class PvEManager extends JavaPlugin {
 		new CustomGraph(this);
 		if (Variables.updateCheck) {
 			getLogger().info("Checking for updates...");
-			Updater updater = new Updater(this, 66406, this.getFile(), Updater.UpdateType.NO_DOWNLOAD, false);
+			final Updater updater = new Updater(this, 66406, this.getFile(), Updater.UpdateType.NO_DOWNLOAD, false);
 			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
 				update = true;
 				newVersion = updater.getLatestName();
 				getLogger().info("Update Available: " + newVersion);
 				getLogger().info("Link: http://dev.bukkit.org/bukkit-plugins/pvemanager/");
-			} else
+			} else {
 				getLogger().info("No update found");
+			}
 		}
 	}
 
@@ -48,6 +52,7 @@ public final class PvEManager extends JavaPlugin {
 		}
 		this.saveDefaultConfig();
 		this.reloadConfig();
+		new Messages(this);
 		variables = new Variables(this);
 	}
 }
