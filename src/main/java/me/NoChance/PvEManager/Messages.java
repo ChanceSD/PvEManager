@@ -1,4 +1,4 @@
-package me.NoChance.PvEManager.Listeners;
+package me.NoChance.PvEManager;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -10,20 +10,19 @@ import java.util.ResourceBundle;
 
 import org.bukkit.ChatColor;
 
-import me.NoChance.PvEManager.PvEManager;
-
 public class Messages {
 
-	private static final String BUNDLE_NAME = "messages"; //$NON-NLS-1$
+	private static final String BUNDLE_NAME = "messages";
 	private static ResourceBundle RESOURCE_BUNDLE;
 
 	public Messages(final PvEManager p) {
 		try {
+			p.saveResource("messages.properties", false);
 			final File file = new File(p.getDataFolder().getPath());
 			final URL[] urls = { file.toURI().toURL() };
 			final ClassLoader loader = new URLClassLoader(urls);
 			RESOURCE_BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault(), loader);
-		} catch (final MalformedURLException e) {// TODO Auto-generated catch block
+		} catch (final MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}

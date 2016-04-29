@@ -10,7 +10,6 @@ import me.NoChance.PvEManager.Updater.UpdateResult;
 import me.NoChance.PvEManager.Config.Variables;
 import me.NoChance.PvEManager.Listeners.CommandListener;
 import me.NoChance.PvEManager.Listeners.DamageListener;
-import me.NoChance.PvEManager.Listeners.Messages;
 import me.NoChance.PvEManager.Listeners.PlayerListener;
 
 public final class PvEManager extends JavaPlugin {

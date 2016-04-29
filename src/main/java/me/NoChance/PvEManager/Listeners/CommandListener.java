@@ -1,5 +1,6 @@
 package me.NoChance.PvEManager.Listeners;
 
+import me.NoChance.PvEManager.Messages;
 import me.NoChance.PvEManager.PvEManager;
 import me.NoChance.PvEManager.Config.Variables;
 

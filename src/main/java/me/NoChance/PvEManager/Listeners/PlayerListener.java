@@ -6,6 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import me.NoChance.PvEManager.Messages;
 import me.NoChance.PvEManager.PvEManager;
 import me.NoChance.PvEManager.Config.Variables;
 
