@@ -31,7 +31,7 @@ public final class PvEManager extends JavaPlugin {
 		new CustomGraph(this);
 		if (Variables.updateCheck) {
 			getLogger().info("Checking for updates...");
-			final Updater updater = new Updater(this, 66406, this.getFile(), Updater.UpdateType.NO_DOWNLOAD, false);
+			final Updater updater = new BukkitUpdater(this, 66406, Updater.UpdateType.VERSION_CHECK);
 			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
 				update = true;
 				newVersion = updater.getLatestName();
