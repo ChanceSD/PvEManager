@@ -1,4 +1,4 @@
 PvEManager
 ==========
 
-Prevents PvELog in Minecraft
+Prevents combat loggin while fighting monsters in Minecraft

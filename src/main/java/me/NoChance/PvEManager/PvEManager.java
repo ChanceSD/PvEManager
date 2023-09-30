@@ -6,16 +6,19 @@ import java.util.HashSet;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
-import me.NoChance.PvEManager.Updater.UpdateResult;
 import me.NoChance.PvEManager.Config.Variables;
 import me.NoChance.PvEManager.Listeners.CommandListener;
 import me.NoChance.PvEManager.Listeners.DamageListener;
 import me.NoChance.PvEManager.Listeners.PlayerListener;
+import me.chancesd.sdutils.updater.BukkitUpdater;
+import me.chancesd.sdutils.updater.Updater;
+import me.chancesd.sdutils.updater.Updater.UpdateResult;
+import me.chancesd.sdutils.updater.Updater.UpdateType;
 
 public final class PvEManager extends JavaPlugin {
 
-	public HashSet<String> inCombat = new HashSet<String>();
-	public HashMap<String, BukkitTask> tasks = new HashMap<String, BukkitTask>();
+	public HashSet<String> inCombat = new HashSet<>();
+	public HashMap<String, BukkitTask> tasks = new HashMap<>();
 	public Variables variables;
 	public boolean update;
 	public String newVersion;
@@ -31,7 +34,7 @@ public final class PvEManager extends JavaPlugin {
 		new CustomGraph(this);
 		if (Variables.updateCheck) {
 			getLogger().info("Checking for updates...");
-			final Updater updater = new BukkitUpdater(this, 66406, Updater.UpdateType.VERSION_CHECK);
+			final Updater updater = new BukkitUpdater(this, 66406, UpdateType.VERSION_CHECK);
 			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
 				update = true;
 				newVersion = updater.getLatestName();
